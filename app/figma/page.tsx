@@ -61,7 +61,7 @@ function AboutHero() {
         </h1>
         <p className="text-[24px] leading-[1.5] text-[#828282]">
           Subheading for description or instructions
-        
+        </p>
         <div className="flex flex-col gap-6 text-[20px] font-medium leading-[1.5] text-black">
           <p>
             Body text for your whole article or post. We&apos;ll put in some

@@ -1,65 +1,102 @@
-import Image from "next/image";
+// Renders the top navbar with the app's brand mark
+function Navbar() {
+  return (
+    <header className="border-b border-border">
+      <div className="max-w-5xl mx-auto flex items-center px-6 py-4">
+        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent font-mono text-sm text-accent-foreground">
+          &gt;_
+        </span>
+        <span className="ml-3 font-semibold tracking-tight">
+          Claude Code Demo
+        </span>
+      </div>
+    </header>
+  );
+}
+
+// Renders the plug icon used by the MCP Integration feature card
+function PlugIcon() {
+  return (
+    <svg
+      className="h-6 w-6"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 22v-5" />
+      <path d="M9 8V2" />
+      <path d="M15 8V2" />
+      <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z" />
+    </svg>
+  );
+}
+
+// Renders the hook icon used by the Hooks feature card
+function HookIcon() {
+  return (
+    <svg
+      className="h-6 w-6"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M9 3v10a5 5 0 0 0 10 0v-3" />
+    </svg>
+  );
+}
+
+// Renders the hero section with headline, subheadline, and feature cards
+function Hero() {
+  return (
+    <main className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
+      <div className="max-w-2xl">
+        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          Built with Claude Code
+        </h1>
+        <p className="mx-auto mt-6 max-w-xl text-lg text-muted">
+          This app is a demo of Claude Code fitting into a real development
+          workflow, including MCP integration and hooks.
+        </p>
+      </div>
+      <div className="mx-auto mt-16 grid max-w-xl grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="rounded-3xl border border-border bg-card p-6 text-left shadow-[0_1px_2px_rgba(31,30,29,0.04),0_4px_12px_-4px_rgba(31,30,29,0.08)] transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(31,30,29,0.06),0_12px_28px_-8px_rgba(31,30,29,0.16)]">
+          <span className="animate-icon-pulse inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-accent">
+            <PlugIcon />
+          </span>
+          <h2 className="mt-4 font-semibold tracking-tight">
+            MCP Integration
+          </h2>
+          <p className="mt-2 text-sm text-muted">
+            Connects to external tools and data sources via the Model
+            Context Protocol.
+          </p>
+        </div>
+        <div className="rounded-3xl border border-border bg-card p-6 text-left shadow-[0_1px_2px_rgba(31,30,29,0.04),0_4px_12px_-4px_rgba(31,30,29,0.08)] transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(31,30,29,0.06),0_12px_28px_-8px_rgba(31,30,29,0.16)]">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-accent">
+            <HookIcon />
+          </span>
+          <h2 className="mt-4 font-semibold tracking-tight">Hooks</h2>
+          <p className="mt-2 text-sm text-muted">
+            Automatically runs your own scripts at key moments, like before a
+            commit or after a file edit.
+          </p>
+        </div>
+      </div>
+    </main>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="flex flex-1 flex-col bg-background">
+      <Navbar />
+      <Hero />
     </div>
   );
 }
